@@ -43,17 +43,17 @@ jobs:
       - name: Ensure version
         run: node ./bin/lando version
       - name: Package into node binary
-        uses: lando/pkg-action@v5
+        uses: lando/pkg-action@v6
         id: pkg-action
         with:
           entrypoint: bin/lando
           node-version: ${{ matrix.node-version }}
           os: ${{ matrix.os }}
+          pkg: pkg@5.8.1
           options: --options dns-result-order=ipv4first
       - name: Ensure fatcore
         if: matrix.os == 'linux' && runner.os == 'Linux' && runner.arch == 'X64'
-        run: ./dist/@lando/cli config --path fatcore | grep true
+        run: ./dist/@lando/legacy-cli config --path fatcore | grep true
       - name: Ensure ipv4first
         if: matrix.os == 'linux' && runner.os == 'Linux' && runner.arch == 'X64'
-        run: ./dist/@lando/cli config --path cli.args | grep dns-result-order=ipv4first
-
+        run: ./dist/@lando/legacy-cli config --path cli.args | grep dns-result-order=ipv4first
