@@ -43,7 +43,7 @@ jobs:
       - name: Setup locally built lando
         uses: lando/setup-lando@v3
         with:
-          lando-version: ./dist/@lando/cli
+          lando-version: ./dist/@lando/legacy-cli
           telemetry: false
           config: |
             setup.skipCommonPlugins=true
