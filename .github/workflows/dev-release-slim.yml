@@ -78,7 +78,7 @@ jobs:
             certificate-data: KEYLOCKER_CLIENT_CERT
             certificate-password: KEYLOCKER_CLIENT_CERT_PASSWORD
             result: lando-win-arm64-${{ github.ref_name }}-slim.exe
-          - os: macos-13
+          - os: macos-15
             key: cli-node18-macos-x64-${{ github.sha }}
             file: lando/cli
             certificate-data: APPLE_CERT_DATA
@@ -89,7 +89,7 @@ jobs:
             apple-notary-password: APPLE_NOTARY_PASSWORD
             options: --options runtime --entitlements entitlements.xml
             result: lando-macos-x64-${{ github.ref_name }}-slim
-          - os: macos-13
+          - os: macos-15
             key: cli-node18-macos-arm64-${{ github.sha }}
             file: lando/cli
             certificate-data: APPLE_CERT_DATA
